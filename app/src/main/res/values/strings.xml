@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="start">Start</string>
+    <string name="questions_amount">Questions amount:</string>
+    <string name="quiz">Quiz</string>
+
+    <string-array name="levelCategory">
+        <item>All</item>
+        <item>Easy</item>
+        <item>Normal</item>
+        <item>Hard</item>
+    </string-array>
+</resources>
