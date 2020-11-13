@@ -5,9 +5,9 @@
     <string name="quiz">Quiz</string>
 
     <string-array name="levelCategory">
-        <item>All</item>
+        <item>Any</item>
         <item>Easy</item>
-        <item>Normal</item>
+        <item>Medium</item>
         <item>Hard</item>
     </string-array>
 </resources>

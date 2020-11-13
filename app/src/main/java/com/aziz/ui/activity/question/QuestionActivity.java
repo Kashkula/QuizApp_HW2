@@ -1,4 +1,4 @@
-package com.aziz.ui.fragment.activity.question;
+package com.aziz.ui.activity.question;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -9,13 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.aziz.R;
-import com.aziz.data.pagerAdapter.adapter.OnClickNextItemQA;
-import com.aziz.data.pagerAdapter.adapter.QuestionAdapter;
-import com.aziz.data.pagerAdapter.model.QuestionModel;
+import com.aziz.data.adapter.OnClickNextItemQA;
+import com.aziz.data.adapter.QuestionAdapter;
+import com.aziz.data.model.question.QuestionModel;
 import com.aziz.databinding.ActivityQuestionBinding;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class QuestionActivity extends AppCompatActivity implements OnClickNextItemQA {
     protected ActivityQuestionBinding binding;
@@ -30,7 +29,6 @@ public class QuestionActivity extends AppCompatActivity implements OnClickNextIt
         super.onCreate(savedInstanceState);
         init();
         onClick();
-        listAdd();
     }
 
     private void init() {
@@ -58,12 +56,6 @@ public class QuestionActivity extends AppCompatActivity implements OnClickNextIt
         binding.rv.setLayoutManager(layoutManager);
     }
 
-    public void listAdd() {
-        Random random = new Random();
-        for (int i = 0; i < question.length; i++) {
-            adapter.add(new QuestionModel(question[i] + i, answers[random.nextInt(10)], answers[random.nextInt(10)], answers[random.nextInt(10)], answers[random.nextInt(10)], answers[random.nextInt(10)], answers[random.nextInt(10)], random.nextBoolean()));
-        }
-    }
 
     @Override
     public void nextItem(int position) {

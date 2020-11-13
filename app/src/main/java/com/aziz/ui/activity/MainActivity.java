@@ -1,21 +1,18 @@
-package com.aziz.ui.fragment.activity;
+package com.aziz.ui.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Toast;
 
 import com.aziz.R;
 import com.aziz.data.pagerAdapter.FragmentAdapter;
-import com.aziz.ui.fragment.activity.question.QuestionActivity;
+import com.aziz.ui.activity.question.QuestionActivity;
 import com.aziz.ui.fragment.history.HistoryFragment;
 import com.aziz.ui.fragment.main.MainFragment;
 import com.aziz.ui.fragment.main.OnClickListenerMF;
@@ -25,7 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnClickListenerMF {
+public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
     protected ViewPager viewPager;
@@ -85,11 +82,5 @@ public class MainActivity extends AppCompatActivity implements OnClickListenerMF
                     .replace(R.id.container, MainFragment.newInstance())
                     .commit();
         }
-    }
-
-    @Override
-    public void openActivity() {
-        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, QuestionActivity.class));
     }
 }

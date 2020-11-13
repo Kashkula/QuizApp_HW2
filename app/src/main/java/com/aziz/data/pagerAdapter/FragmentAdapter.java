@@ -3,11 +3,7 @@ package com.aziz.data.pagerAdapter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-
-import com.aziz.ui.fragment.history.HistoryFragment;
-import com.aziz.ui.fragment.main.MainFragment;
 
 import java.util.List;
 

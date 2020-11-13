@@ -3,8 +3,8 @@
 
     <data>
         <variable
-            name="v"
-            type="android.view.View" />
+            name="qa"
+            type="com.aziz.ui.activity.question.QuestionActivity" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.fragment.activity.question.QuestionActivity">
+        tools:context=".ui.activity.question.QuestionActivity">
 
         <LinearLayout
             android:layout_width="match_parent"

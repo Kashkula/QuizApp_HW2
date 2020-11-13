@@ -5,11 +5,11 @@
 
         <variable
             name="qm"
-            type="com.aziz.data.pagerAdapter.model.QuestionModel" />
+            type="com.aziz.data.model.question.QuestionModel" />
 
         <variable
             name="vh"
-            type="com.aziz.data.pagerAdapter.adapter.QuestionAdapter.ViewHolder" />
+            type="com.aziz.data.adapter.QuestionAdapter.ViewHolder" />
 
         <variable
             name="v"
@@ -34,7 +34,6 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="44dp"
                 android:paddingEnd="44dp"
-                android:text="@{qm.question}"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
@@ -55,29 +54,25 @@
                 android:id="@+id/btn_first"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.onClick()}"
-                android:text="@{qm.first_answer}" />
+                android:onClick="@{(v)->vh.onClick()}" />
 
             <Button
                 android:id="@+id/btn_second"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.onClick()}"
-                android:text="@{qm.second_answer}" />
+                android:onClick="@{(v)->vh.onClick()}" />
 
             <Button
                 android:id="@+id/btn_third"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.onClick()}"
-                android:text="@{qm.third_answer}" />
+                android:onClick="@{(v)->vh.onClick()}" />
 
             <Button
                 android:id="@+id/btn_fourth"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.onClick()}"
-                android:text="@{qm.fourth_answer}" />
+                android:onClick="@{(v)->vh.onClick()}" />
 
         </LinearLayout>
 
@@ -94,15 +89,13 @@
                 android:id="@+id/btn_fifth"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.onClick()}"
-                android:text="@{qm.fifth_answer}" />
+                android:onClick="@{(v)->vh.onClick()}" />
 
             <Button
                 android:id="@+id/btn_sixth"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.onClick()}"
-                android:text="@{qm.sixth_answer}" />
+                android:onClick="@{(v)->vh.onClick()}" />
 
         </LinearLayout>
 

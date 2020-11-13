@@ -1,4 +1,4 @@
-package com.aziz.data.pagerAdapter.adapter;
+package com.aziz.data.adapter;
 
 public interface OnClickNextItemQA  {
     void nextItem(int position);

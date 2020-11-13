@@ -1,4 +1,4 @@
-package com.aziz.data.pagerAdapter.adapter;
+package com.aziz.data.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +9,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aziz.R;
-import com.aziz.data.pagerAdapter.model.QuestionModel;
-import com.aziz.databinding.ActivityQuestionBinding;
+import com.aziz.data.model.question.QuestionModel;
 import com.aziz.databinding.ListItemBinding;
 
 import java.util.ArrayList;
@@ -35,6 +34,8 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item, parent, false);
+        //may be and so...
+//        binding = DataBindingUtil.bind(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false));
         return new ViewHolder(binding.getRoot());
     }
 
@@ -50,7 +51,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        boolean type;
+        String type;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -58,9 +59,9 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         }
 
         public void bind(QuestionModel model) {
-            type = model.type;
+            type = model.getType();
             binding.setQm(model);
-            if (type) {
+            if (type.equals("False")) {
                 binding.linearBoolean.setVisibility(View.GONE);
                 binding.linearMultitype.setVisibility(View.VISIBLE);
             } else {
