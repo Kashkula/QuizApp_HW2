@@ -12,7 +12,7 @@ public class QuizResult implements Serializable{
     private String difficulty;
     private int correctAnswerResult;
     private Date createdAt;
-    private ArrayList<QuestionModel> list;
+    private ArrayList<QuestionModel> listt;
 
     public String getCategory() {
         return category;
@@ -46,25 +46,25 @@ public class QuizResult implements Serializable{
         this.createdAt = createdAt;
     }
 
-    public ArrayList<QuestionModel> getList() {
-        return list;
+    public ArrayList<QuestionModel> getListt() {
+        return listt;
     }
 
-    public void setList(ArrayList<QuestionModel> list) {
-        this.list = list;
+    public void setListt(ArrayList<QuestionModel> listt) {
+        this.listt = listt;
     }
 
-    public QuizResult(String category, String difficulty, ArrayList<QuestionModel> list) {
+    public QuizResult(String category, String difficulty, ArrayList<QuestionModel> listt) {
         this.category = category;
         this.difficulty = difficulty;
-        this.list = list;
+        this.listt = listt;
     }
 
-    public QuizResult(String category, String difficulty, int correctAnswerResult, Date createdAt, ArrayList<QuestionModel> list) {
+    public QuizResult(String category, String difficulty, int correctAnswerResult, Date createdAt, ArrayList<QuestionModel> listt) {
         this.category = category;
         this.difficulty = difficulty;
         this.correctAnswerResult = correctAnswerResult;
         this.createdAt = createdAt;
-        this.list = list;
+        this.listt = listt;
     }
 }
