@@ -34,7 +34,6 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         binding = ListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-
         //may be and so...
 //        binding = DataBindingUtil.bind(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false));
 //        binding = ListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
@@ -85,34 +84,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             if (qm.getBtnPosition() == 100)
                 qm.setBtnPosition(positionBtn);
 
-            switch (qm.getBtnPosition()) {
-                case 1:
-                    dontRepeat(binding.btnFirst);
-                    break;
-
-                case 2:
-                    dontRepeat(binding.btnSecond);
-                    break;
-
-                case 3:
-                    dontRepeat(binding.btnThird);
-                    break;
-
-                case 4:
-                    dontRepeat(binding.btnFourth);
-                    break;
-                case 5:
-                    dontRepeat(binding.btnFifth);
-                    break;
-
-                case 6:
-                    dontRepeat(binding.btnSixth);
-                    break;
+            for (int i = 0; i < btns_multiple.length; i++) {
+                if (qm.getBtnPosition() == i)
+                    dontRepeat(i);
             }
-
         }
 
-        void dontRepeat(Button btn) {
+        void dontRepeat(int position) {
+            Button btn = btns_multiple[position];
             QuestionModel qm = list.get(getAdapterPosition());
             if (btn.getText().equals(qm.getCorrectAnswer()))
                 btn.setBackgroundResource(R.drawable.for_true_variant);
