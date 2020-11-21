@@ -18,7 +18,6 @@ public class App extends Application {
         IHistoryStorage historyStorage = new HistoryStorage();
 
         repository = new QuizRepository(apiClient, historyStorage);
-        
-        //oijo
+
     }
 }

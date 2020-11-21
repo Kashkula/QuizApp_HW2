@@ -16,7 +16,7 @@ import com.aziz.ui.fragment.main.MainFragment;
 public class ResultActivity extends AppCompatActivity {
     protected String difficulty;
     float idF, forAnswerF;
-    int id, category, forAnswer;
+    int id, forAnswer;
     protected ActivityResultBinding binding;
 
     @SuppressLint("SetTextI18n")
@@ -28,7 +28,6 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         difficulty = intent.getStringExtra(MainFragment.DIFFICULTY);
         id = intent.getIntExtra(MainFragment.ID, 0);
-        category = intent.getIntExtra(MainFragment.CATEGORY, 0);
         forAnswer = intent.getIntExtra(QuestionActivity.CORRECT_ANSWER, 0);
         idF = id;
         forAnswerF = forAnswer;

@@ -97,14 +97,14 @@
                 android:id="@+id/btn_fifth"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.methods(qm.incorrectAnswers.get(0),0)}"
+                android:onClick="@{(v)->vh.methods(qm.incorrectAnswers.get(0),5)}"
                 android:text="@{qm.type.equals(`boolean`) ? qm.incorrectAnswers.get(0): ``}" />
 
             <Button
                 android:id="@+id/btn_sixth"
                 style="@style/ForBtn"
                 android:background="@drawable/for_variants"
-                android:onClick="@{(v)->vh.methods(qm.incorrectAnswers.get(1),1)}"
+                android:onClick="@{(v)->vh.methods(qm.incorrectAnswers.get(1),6)}"
                 android:text="@{qm.type.equals(`boolean`) ? qm.incorrectAnswers.get(1): ``}" />
 
         </LinearLayout>

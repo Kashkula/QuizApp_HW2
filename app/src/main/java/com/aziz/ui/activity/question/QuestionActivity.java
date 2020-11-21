@@ -132,9 +132,7 @@ public class QuestionActivity extends AppCompatActivity implements OnClickNextIt
 
     @Override
     public void answersMethod() {
-        QuestionModel model = viewModel.qm_list.get(0);
         Intent intent = new Intent(QuestionActivity.this, ResultActivity.class);
-        intent.putExtra(MainFragment.CATEGORY, model.getCategory());
         intent.putExtra(MainFragment.ID, id);
         intent.putExtra(MainFragment.DIFFICULTY, difficulty);
         intent.putExtra(CORRECT_ANSWER, forAnswer);

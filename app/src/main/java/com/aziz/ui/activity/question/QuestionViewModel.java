@@ -16,7 +16,6 @@ public class QuestionViewModel extends ViewModel {
     public MutableLiveData<ArrayList<QuestionModel>> questionLiveData = new MutableLiveData<>();
     public MutableLiveData<Integer> pBar_number = new MutableLiveData<>();
     public ObservableField<Boolean> isLoading = new ObservableField<>(true);
-    public ArrayList<QuestionModel> qm_list = new ArrayList<>();
 
 
     public void getQuestion(int id, int category, String difficulty) {
@@ -24,7 +23,6 @@ public class QuestionViewModel extends ViewModel {
                                             @Override
                                             public void onSuccess(ArrayList<QuestionModel> result) {
                                                 questionLiveData.setValue(result);
-                                                qm_list.addAll(result);
                                                 isLoading.set(false);
                                             }
 

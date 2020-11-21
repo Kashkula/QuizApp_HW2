@@ -1,9 +1,7 @@
 package com.aziz.data.adapter.question;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +61,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        Button[] btns_multiple = {binding.btnFirst, binding.btnSecond, binding.btnThird, binding.btnFourth, binding.btnFifth, binding.btnSixth};
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,11 +74,8 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                 qm.setKnopka(false);
                 knopka = true;
             }
-
             setBackground(position);
-
             onClickNextItemQA.nextItem(knopka, getAdapterPosition());
-
             if (getAdapterPosition() == list.size() - 1)
                 onClickOpenActivity.answersMethod();
         }
@@ -89,98 +85,58 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             if (qm.getBtnPosition() == 100)
                 qm.setBtnPosition(positionBtn);
 
-            Button[] btns_multiple = {binding.btnFirst, binding.btnSecond, binding.btnThird, binding.btnFourth};
-            Button[] btns_boolean = {binding.btnFifth, binding.btnSixth};
-
             switch (qm.getBtnPosition()) {
                 case 1:
-                    if (binding.btnFirst.getText().equals(qm.getCorrectAnswer())) {
-                        binding.btnFirst.setBackgroundResource(R.drawable.for_true_variant);
-                        binding.btnFifth.setBackgroundResource(R.drawable.for_true_variant);
-                    } else {
-                        correctAnswerByDefault();
-                        binding.btnFirst.setBackgroundResource(R.drawable.for_false_variant);
-                        binding.btnFifth.setBackgroundResource(R.drawable.for_false_variant);
-                    }
-                    binding.btnFirst.setTextColor(Color.WHITE);
-                    binding.btnFifth.setTextColor(Color.WHITE);
+                    dontRepeat(binding.btnFirst);
                     break;
 
                 case 2:
-                    if (binding.btnSecond.getText().equals(qm.getCorrectAnswer())) {
-                        binding.btnSecond.setBackgroundResource(R.drawable.for_true_variant);
-                        binding.btnSixth.setBackgroundResource(R.drawable.for_true_variant);
-                    } else {
-                        correctAnswerByDefault();
-                        binding.btnSecond.setBackgroundResource(R.drawable.for_false_variant);
-                        binding.btnSixth.setBackgroundResource(R.drawable.for_false_variant);
-                    }
-                    binding.btnSecond.setTextColor(Color.WHITE);
-                    binding.btnSixth.setTextColor(Color.WHITE);
+                    dontRepeat(binding.btnSecond);
                     break;
 
                 case 3:
-                    if (binding.btnThird.getText().equals(qm.getCorrectAnswer())) {
-                        binding.btnThird.setBackgroundResource(R.drawable.for_true_variant);
-                    } else {
-                        correctAnswerByDefault();
-                        binding.btnThird.setBackgroundResource(R.drawable.for_false_variant);
-                    }
-                    binding.btnThird.setTextColor(Color.WHITE);
+                    dontRepeat(binding.btnThird);
                     break;
+
                 case 4:
-                    if (binding.btnFourth.getText().equals(qm.getCorrectAnswer())) {
-                        binding.btnFourth.setBackgroundResource(R.drawable.for_true_variant);
-                    } else {
-                        correctAnswerByDefault();
-                        binding.btnFourth.setBackgroundResource(R.drawable.for_false_variant);
-                    }
-                    binding.btnFourth.setTextColor(Color.WHITE);
+                    dontRepeat(binding.btnFourth);
+                    break;
+                case 5:
+                    dontRepeat(binding.btnFifth);
+                    break;
+
+                case 6:
+                    dontRepeat(binding.btnSixth);
                     break;
             }
 
+        }
+
+        void dontRepeat(Button btn) {
+            QuestionModel qm = list.get(getAdapterPosition());
+            if (btn.getText().equals(qm.getCorrectAnswer()))
+                btn.setBackgroundResource(R.drawable.for_true_variant);
+            else {
+                correctAnswerByDefault();
+                btn.setBackgroundResource(R.drawable.for_false_variant);
+            }
         }
 
         void correctAnswerByDefault() {
             QuestionModel qm = binding.getQm();
-            if
-            (qm.getCorrectAnswer().equals(binding.getQm().getIncorrectAnswers().get(0))) {
-                binding.btnFirst.setBackgroundResource(R.drawable.for_true_variant);
-                binding.btnFifth.setBackgroundResource(R.drawable.for_true_variant);
-                binding.btnFirst.setTextColor(Color.WHITE);
-                binding.btnFifth.setTextColor(Color.WHITE);
-            } else if
-            (qm.getCorrectAnswer().equals(binding.getQm().getIncorrectAnswers().get(1))) {
-                binding.btnSecond.setBackgroundResource(R.drawable.for_true_variant);
-                binding.btnSecond.setTextColor(Color.WHITE);
-                binding.btnSixth.setBackgroundResource(R.drawable.for_true_variant);
-                binding.btnSixth.setTextColor(Color.WHITE);
-            } else if
-            (qm.getCorrectAnswer().equals(binding.getQm().getIncorrectAnswers().get(2))) {
-                binding.btnThird.setBackgroundResource(R.drawable.for_true_variant);
-                binding.btnThird.setTextColor(Color.WHITE);
-            } else if
-            (qm.getCorrectAnswer().equals(binding.getQm().getIncorrectAnswers().get(3))) {
-                binding.btnFourth.setBackgroundResource(R.drawable.for_true_variant);
-                binding.btnFourth.setTextColor(Color.WHITE);
+            for (Button btn : btns_multiple) {
+                if (btn.getText().equals(qm.getCorrectAnswer())) {
+                    btn.setTextColor(Color.WHITE);
+                    btn.setBackgroundResource(R.drawable.for_true_variant);
+                }
             }
-
         }
 
         void clear() {
-            binding.btnFirst.setBackgroundResource(R.drawable.for_variants);
-            binding.btnSecond.setBackgroundResource(R.drawable.for_variants);
-            binding.btnThird.setBackgroundResource(R.drawable.for_variants);
-            binding.btnFourth.setBackgroundResource(R.drawable.for_variants);
-            binding.btnFifth.setBackgroundResource(R.drawable.for_variants);
-            binding.btnSixth.setBackgroundResource(R.drawable.for_variants);
-
-            binding.btnFirst.setTextColor(R.style.ForBtn);
-            binding.btnSecond.setTextColor(R.style.ForBtn);
-            binding.btnThird.setTextColor(R.style.ForBtn);
-            binding.btnFourth.setTextColor(R.style.ForBtn);
-            binding.btnFifth.setTextColor(R.style.ForBtn);
-            binding.btnSixth.setTextColor(R.style.ForBtn);
+            for (Button btn : btns_multiple) {
+                btn.setBackgroundResource(R.drawable.for_variants);
+                btn.setTextColor(R.style.ForBtn);
+            }
         }
     }
 }
